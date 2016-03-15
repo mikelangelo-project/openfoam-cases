@@ -1,0 +1,2 @@
+/openfoam/etc/**:              ${MODULE_DIR}/../etc/**
+/openfoam/mik3d_1h-4cpu/**:    ${MODULE_DIR}/**
