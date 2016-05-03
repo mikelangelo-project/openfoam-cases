@@ -1,0 +1,210 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.4.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "0/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+18
+(
+    plane1
+    {
+        type            symmetryPlane;
+        inGroups        1(symmetryPlane);
+        nFaces          0;
+        startFace       21426;
+    }
+    plane2
+    {
+        type            symmetryPlane;
+        inGroups        1(symmetryPlane);
+        nFaces          0;
+        startFace       21426;
+    }
+    outlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       21426;
+    }
+    inlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       21426;
+    }
+    wing
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          938;
+        startFace       21426;
+    }
+    fan01
+    {
+        type            cyclic;
+        inGroups        
+2
+(
+cyclic
+cyclicFaces
+)
+;
+        nFaces          70;
+        startFace       22364;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  fan02;
+    }
+    fan02
+    {
+        type            cyclic;
+        inGroups        
+2
+(
+cyclic
+cyclicFaces
+)
+;
+        nFaces          70;
+        startFace       22434;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  fan01;
+    }
+    procBoundary47to15
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          4;
+        startFace       22504;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        47;
+        neighbProcNo    15;
+    }
+    procBoundary47to28
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          71;
+        startFace       22508;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        47;
+        neighbProcNo    28;
+    }
+    procBoundary47to40
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          161;
+        startFace       22579;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        47;
+        neighbProcNo    40;
+    }
+    procBoundary47to40throughfan02
+    {
+        type            processorCyclic;
+        inGroups        1(processorCyclic);
+        nFaces          7;
+        startFace       22740;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        47;
+        neighbProcNo    40;
+        referPatch      fan02;
+    }
+    procBoundary47to41
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          193;
+        startFace       22747;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        47;
+        neighbProcNo    41;
+    }
+    procBoundary47to42
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          277;
+        startFace       22940;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        47;
+        neighbProcNo    42;
+    }
+    procBoundary47to43
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          223;
+        startFace       23217;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        47;
+        neighbProcNo    43;
+    }
+    procBoundary47to44
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          133;
+        startFace       23440;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        47;
+        neighbProcNo    44;
+    }
+    procBoundary47to45
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          231;
+        startFace       23573;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        47;
+        neighbProcNo    45;
+    }
+    procBoundary47to45throughfan02
+    {
+        type            processorCyclic;
+        inGroups        1(processorCyclic);
+        nFaces          13;
+        startFace       23804;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        47;
+        neighbProcNo    45;
+        referPatch      fan02;
+    }
+    procBoundary47to46
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          366;
+        startFace       23817;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        47;
+        neighbProcNo    46;
+    }
+)
+
+// ************************************************************************* //
