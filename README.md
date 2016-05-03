@@ -1,6 +1,6 @@
 Example OpenFOAM datasets for testing OpenFOAM on OSv.
 
-= Prerequisite =
+# Prerequisite
 
 Uses git LFS, so install it before cloning.
 From https://git-lfs.github.com/:
@@ -10,8 +10,15 @@ curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.s
 sudo dnf install git-lfs
 ```
 
+LFS objects are always received via https.
+Entering username/password more than once is annoying.
+Per http://doc.gitlab.com/ce/workflow/lfs/manage_large_binaries_with_git_lfs.html#credentials-are-always-required-when-pushing-an-object
+```
+git config --global credential.helper 'cache --timeout=300'
+git clone https://gitlab.xlab.si/mikelangelo/openfoam-cases.git
+```
 
-= Use existing cases =
+# Use existing cases
 
 After checkout, add it to OSv `config.json` repositories:
 ```
@@ -25,7 +32,7 @@ osv/config.json:
     ]
 ```
 
-== Preparing a new case ==
+## Preparing a new case
 
 Compile decomposePar utility.
 ```
