@@ -1,0 +1,70 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      p;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include        "conditions"
+
+dimensions      [0 2 -2 0 0 0 0];
+
+internalField   uniform $pressure;
+
+boundaryField
+{
+    inlet
+    {
+        type            zeroGradient;
+    }
+
+    outlet
+    {
+        type            fixedValue;
+        value           uniform $pressure;
+    }
+
+    plane1
+    {
+        type            symmetryPlane;
+    }
+    plane2
+    {
+        type            symmetryPlane;
+    }
+
+    wing
+    {
+        type            zeroGradient;
+    }
+
+    fan01 
+    {
+	type fan;
+	patchType cyclic;
+	jump uniform 0;
+	value uniform 0;
+	jumpTable polynomial 1(($pressureJump 0));
+    }
+
+    fan02
+    {
+        type            fan;
+        patchType       cyclic;
+//	jump uniform 0;
+	value uniform 0;
+//	jumpTable polynomial 1((0.5 0));
+    }
+
+}
+
+// ************************************************************************* //
