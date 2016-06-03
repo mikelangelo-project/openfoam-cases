@@ -1,0 +1,87 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.4.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "0/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+7
+(
+    plane1
+    {
+        type            symmetryPlane;
+        inGroups        1(symmetryPlane);
+        nFaces          2584;
+        startFace       1398092;
+    }
+    plane2
+    {
+        type            symmetryPlane;
+        inGroups        1(symmetryPlane);
+        nFaces          2584;
+        startFace       1400676;
+    }
+    outlet
+    {
+        type            patch;
+        nFaces          54;
+        startFace       1403260;
+    }
+    inlet
+    {
+        type            patch;
+        nFaces          16;
+        startFace       1403314;
+    }
+    wing
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          67418;
+        startFace       1403330;
+    }
+    fan01
+    {
+        type            cyclic;
+        inGroups        
+2
+(
+cyclic
+cyclicFaces
+)
+;
+        nFaces          942;
+        startFace       1470748;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  fan02;
+    }
+    fan02
+    {
+        type            cyclic;
+        inGroups        
+2
+(
+cyclic
+cyclicFaces
+)
+;
+        nFaces          942;
+        startFace       1471690;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  fan01;
+    }
+)
+
+// ************************************************************************* //

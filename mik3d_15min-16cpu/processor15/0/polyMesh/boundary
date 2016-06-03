@@ -1,0 +1,142 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.4.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "0/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+12
+(
+    plane1
+    {
+        type            symmetryPlane;
+        inGroups        1(symmetryPlane);
+        nFaces          474;
+        startFace       86578;
+    }
+    plane2
+    {
+        type            symmetryPlane;
+        inGroups        1(symmetryPlane);
+        nFaces          0;
+        startFace       87052;
+    }
+    outlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       87052;
+    }
+    inlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       87052;
+    }
+    wing
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          4472;
+        startFace       87052;
+    }
+    fan01
+    {
+        type            cyclic;
+        inGroups        
+2
+(
+cyclic
+cyclicFaces
+)
+;
+        nFaces          0;
+        startFace       91524;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  fan02;
+    }
+    fan02
+    {
+        type            cyclic;
+        inGroups        
+2
+(
+cyclic
+cyclicFaces
+)
+;
+        nFaces          0;
+        startFace       91524;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  fan01;
+    }
+    procBoundary15to2
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          396;
+        startFace       91524;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        15;
+        neighbProcNo    2;
+    }
+    procBoundary15to8
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          2;
+        startFace       91920;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        15;
+        neighbProcNo    8;
+    }
+    procBoundary15to10
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          33;
+        startFace       91922;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        15;
+        neighbProcNo    10;
+    }
+    procBoundary15to11
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          508;
+        startFace       91955;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        15;
+        neighbProcNo    11;
+    }
+    procBoundary15to14
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          848;
+        startFace       92463;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        15;
+        neighbProcNo    14;
+    }
+)
+
+// ************************************************************************* //
