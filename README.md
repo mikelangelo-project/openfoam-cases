@@ -10,14 +10,6 @@ curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.s
 sudo dnf install git-lfs
 ```
 
-LFS objects are always received via https.
-Entering username/password more than once is annoying.
-Per http://doc.gitlab.com/ce/workflow/lfs/manage_large_binaries_with_git_lfs.html#credentials-are-always-required-when-pushing-an-object
-```
-git config --global credential.helper 'cache --timeout=300'
-git clone https://gitlab.xlab.si/mikelangelo/openfoam-cases.git
-```
-
 # Use existing cases
 
 After checkout, add it to OSv `config.json` repositories:
